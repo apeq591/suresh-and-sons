@@ -9,7 +9,7 @@
 <!-- Fonts: Cormorant Garamond (heritage display) + Outfit (clean modern body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <!-- Phosphor icons (icon library, not hand-rolled SVG) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
@@ -20,17 +20,18 @@
     theme: {
       extend: {
         colors: {
-          paper:   '#F4EBD9', // warm oat base
-          surface: '#FBF6EC', // raised warm surface
-          ink:     '#2A2622', // warm near-black text
-          forest:  '#1B2A22', // deep curry-leaf green (dark anchor)
+          paper:   '#F2E6D0', // warm cream base
+          surface: '#FCF4E4', // raised warm surface
+          ink:     '#2A2018', // warm near-black text
+          forest:  '#2C1813', // deep cinnamon-brown (warm dark anchor)
           spice:   '#A8342A', // the single accent: chilli / madder red
           spiceDk: '#86281F',
-          saffron: '#E0A23A', // rationed decorative highlight only
+          saffron: '#E0A23A', // warm highlight
         },
         fontFamily: {
           display: ['"Cormorant Garamond"', 'serif'],
           sans: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          hand: ['Caveat', 'cursive'],
         },
         maxWidth: { content: '1180px' },
       },
@@ -59,7 +60,8 @@
 </style>
 </head>
 
-<body class="font-sans bg-paper text-ink antialiased">
+<body class="font-sans text-ink antialiased"
+      style="background: radial-gradient(1000px 520px at 50% -8%, rgba(224,162,58,0.22), transparent 60%), #F2E6D0; background-attachment: fixed;">
 
 <!-- ===== NAV ===== -->
 <header id="top" class="fixed inset-x-0 top-0 z-40 bg-paper/85 backdrop-blur-md border-b border-ink/10">
@@ -102,7 +104,7 @@
         Bring home the<br />real taste of India.
       </h1>
       <p class="reveal mt-6 max-w-md text-lg leading-relaxed text-ink/70">
-        Finnieston's Indian grocer for spices, fresh produce, sweets and pantry staples, with next-day delivery across the UK.
+        The spices, fresh produce and sweets that make your kitchen smell like home. Pop in on Argyle Street, or get it delivered across the UK.
       </p>
       <div class="reveal mt-8 flex flex-wrap items-center gap-3">
         <a href="shop.html"
@@ -122,6 +124,7 @@
              alt="Indian spices, ginger, garlic and fresh herbs laid out on a table"
              class="h-[340px] w-full object-cover sm:h-[440px] lg:h-[520px]"
              fetchpriority="high" onerror="this.style.display='none'" />
+        <span class="absolute bottom-4 right-4 -rotate-3 rounded-full bg-paper/90 px-4 py-1 font-hand text-2xl text-spice shadow-md">fresh in today</span>
       </div>
     </div>
   </div>
@@ -159,7 +162,7 @@
   <div class="mx-auto max-w-content">
     <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
       <h2 class="font-display text-4xl text-ink sm:text-5xl">Shop by category</h2>
-      <p class="max-w-sm text-ink/60">Everything for an Indian kitchen, from whole spices to fresh produce and sweets.</p>
+      <p class="max-w-sm text-ink/60">Everything your recipes ask for, from whole spices to fresh coriander and a tin of gulab jamun.</p>
     </div>
 
     <div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[200px]">
@@ -237,6 +240,7 @@
         sweets that make home cooking taste like home. The same shelves locals have always loved, now packed and
         delivered across the UK.
       </p>
+      <p class="mt-4 font-hand text-3xl text-saffron">the kind of shop where they know your order</p>
       <a href="https://sureshandsons.co.uk/about-us/" target="_blank" rel="noopener"
          class="mt-7 inline-flex items-center gap-2 text-saffron hover:gap-3 transition-all">
         Read our story <i class="ph ph-arrow-right"></i>
