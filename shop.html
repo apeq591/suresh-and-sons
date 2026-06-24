@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shop | Suresh &amp; Sons, Indian Grocer Finnieston</title>
+<meta name="description" content="Shop the shelves at Suresh & Sons. Spices, rice, lentils, fresh produce, sweets and more, with next-day delivery across the UK." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        paper:'#F4EBD9', surface:'#FBF6EC', ink:'#2A2622', forest:'#1B2A22',
+        spice:'#A8342A', spiceDk:'#86281F', saffron:'#E0A23A',
+      },
+      fontFamily: { display:['"Cormorant Garamond"','serif'], sans:['Outfit','ui-sans-serif','system-ui','sans-serif'] },
+      maxWidth: { content:'1180px' },
+    }},
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  section[id] { scroll-margin-top: 88px; }
+  .card { transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(42,38,34,.5); }
+  .btn-press:active { transform: translateY(1px); }
+  #toast { transition: opacity .35s ease, transform .35s ease; }
+  @media (prefers-reduced-motion: reduce){
+    html { scroll-behavior:auto; }
+    .card{ transition:none; }
+  }
+</style>
+</head>
+
+<body class="font-sans bg-paper text-ink antialiased">
+
+<!-- ===== NAV ===== -->
+<header class="fixed inset-x-0 top-0 z-40 bg-paper/85 backdrop-blur-md border-b border-ink/10">
+  <nav class="mx-auto flex max-w-content items-center justify-between gap-4 px-5 lg:px-8 h-[68px]">
+    <a href="index.html" class="flex items-baseline gap-2 leading-none">
+      <span class="font-display text-2xl font-700 text-ink">Suresh <span class="text-saffron">&amp;</span> Sons</span>
+      <span class="hidden sm:block text-[11px] uppercase tracking-[0.18em] text-ink/45">Finnieston</span>
+    </a>
+    <div class="flex items-center gap-6 text-[15px] text-ink/75">
+      <a href="index.html" class="hidden sm:block hover:text-spice transition-colors">Home</a>
+      <a href="index.html#visit" class="hidden sm:block hover:text-spice transition-colors">Visit</a>
+      <button id="basketBtn" class="btn-press relative inline-flex items-center gap-2 rounded-full bg-spice px-4 py-2.5 text-sm font-500 text-white hover:bg-spiceDk transition-colors">
+        <i class="ph ph-basket text-base"></i>
+        <span class="hidden sm:inline">Basket</span>
+        <span id="basketCount" class="hidden ml-0.5 rounded-full bg-white/25 px-1.5 text-xs">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== SHOP HEADER ===== -->
+<section class="px-5 lg:px-8 pt-28 pb-8 md:pt-32">
+  <div class="mx-auto grid max-w-content items-center gap-8 md:grid-cols-12">
+    <div class="md:col-span-7">
+      <h1 class="font-display text-5xl leading-[1.05] text-ink sm:text-6xl">Shop the shelves</h1>
+      <p class="mt-4 max-w-md text-lg leading-relaxed text-ink/70">
+        The whole shop, ready to fill your basket. Spices, rice, lentils, fresh produce and sweets, delivered next day across the UK.
+      </p>
+      <label class="mt-6 flex max-w-md items-center gap-3 rounded-full border border-ink/15 bg-surface px-5 py-3">
+        <i class="ph ph-magnifying-glass text-ink/45"></i>
+        <input type="text" placeholder="Search for rice, dal, masala..."
+               class="w-full bg-transparent text-[15px] text-ink placeholder:text-ink/40 focus:outline-none" />
+      </label>
+    </div>
+    <div class="md:col-span-5">
+      <div class="overflow-hidden rounded-[24px] bg-gradient-to-br from-saffron/30 to-spice/20">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=72"
+             alt="Indian spices and fresh herbs laid out" class="h-56 w-full object-cover md:h-72"
+             onerror="this.style.display='none'" />
+      </div>
+    </div>
+  </div>
+
+  <!-- category chips -->
+  <div class="mx-auto mt-8 flex max-w-content gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
+    <a href="#spices"  class="chip">Spices &amp; Masalas</a>
+    <a href="#grains"  class="chip">Rice, Flour &amp; Grains</a>
+    <a href="#lentils" class="chip">Lentils &amp; Pulses</a>
+    <a href="#fresh"   class="chip">Fresh Produce</a>
+    <a href="#sweets"  class="chip">Sweets &amp; Snacks</a>
+    <a href="#drinks"  class="chip">Drinks &amp; Dairy</a>
+    <a href="#pooja"   class="chip">Pooja Items</a>
+  </div>
+</section>
+
+<style>
+  .chip { white-space:nowrap; border:1px solid rgba(42,38,34,.15); border-radius:9999px;
+    padding:.5rem 1rem; font-size:14px; color:rgba(42,38,34,.7); transition:all .2s; }
+  .chip:hover { border-color:#A8342A; color:#A8342A; }
+</style>
+
+<main class="mx-auto max-w-content px-5 lg:px-8 pb-8">
+
+  <!-- SPICES -->
+  <section id="spices" class="pt-10">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-jar text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Spices &amp; Masalas</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-jar text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Turmeric Powder</h3>
+        <p class="text-sm text-ink/55">400g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Turmeric Powder">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-jar text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Garam Masala</h3>
+        <p class="text-sm text-ink/55">100g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Garam Masala">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-jar text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Cumin Seeds</h3>
+        <p class="text-sm text-ink/55">300g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.79</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Cumin Seeds">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-jar text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Red Chilli Powder</h3>
+        <p class="text-sm text-ink/55">400g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Red Chilli Powder">Add</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- RICE, FLOUR & GRAINS -->
+  <section id="grains" class="pt-12">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-grains text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Rice, Flour &amp; Grains</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-forest/15"><i class="ph ph-grains text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Basmati Rice</h3>
+        <p class="text-sm text-ink/55">5kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;11.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Basmati Rice">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-forest/15"><i class="ph ph-grains text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Chapatti Atta</h3>
+        <p class="text-sm text-ink/55">10kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;9.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Chapatti Atta">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-forest/15"><i class="ph ph-grains text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Gram Flour (Besan)</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.29</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Gram Flour">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-forest/15"><i class="ph ph-grains text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Sooji (Semolina)</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.89</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Sooji">Add</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LENTILS & PULSES -->
+  <section id="lentils" class="pt-12">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-bowl-food text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Lentils &amp; Pulses</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/15 to-saffron/25"><i class="ph ph-bowl-food text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Toor Dal</h3>
+        <p class="text-sm text-ink/55">2kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;5.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Toor Dal">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/15 to-saffron/25"><i class="ph ph-bowl-food text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Chana Dal</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.79</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Chana Dal">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/15 to-saffron/25"><i class="ph ph-bowl-food text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Moong Dal</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Moong Dal">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/15 to-saffron/25"><i class="ph ph-bowl-food text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Rajma (Kidney Beans)</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;3.19</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Rajma">Add</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FRESH PRODUCE -->
+  <section id="fresh" class="pt-12">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-leaf text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Fresh Produce</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/25 to-saffron/15"><i class="ph ph-leaf text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Fresh Coriander</h3>
+        <p class="text-sm text-ink/55">Bunch</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;0.79</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Fresh Coriander">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/25 to-saffron/15"><i class="ph ph-leaf text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Green Chillies</h3>
+        <p class="text-sm text-ink/55">200g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.19</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Green Chillies">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/25 to-saffron/15"><i class="ph ph-leaf text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Fresh Ginger</h3>
+        <p class="text-sm text-ink/55">250g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.09</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Fresh Ginger">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-forest/25 to-saffron/15"><i class="ph ph-leaf text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Okra (Bhindi)</h3>
+        <p class="text-sm text-ink/55">500g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Okra">Add</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SWEETS & SNACKS -->
+  <section id="sweets" class="pt-12">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-cookie text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Sweets &amp; Snacks</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/25"><i class="ph ph-cookie text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Gulab Jamun Tin</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;4.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Gulab Jamun">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/25"><i class="ph ph-cookie text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Soan Papdi</h3>
+        <p class="text-sm text-ink/55">500g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;3.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Soan Papdi">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/25"><i class="ph ph-cookie text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Bombay Mix</h3>
+        <p class="text-sm text-ink/55">400g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Bombay Mix">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/25"><i class="ph ph-cookie text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Samosas (frozen)</h3>
+        <p class="text-sm text-ink/55">Box of 12</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;3.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Samosas">Add</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DRINKS & DAIRY -->
+  <section id="drinks" class="pt-12">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-coffee text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Drinks &amp; Dairy</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-coffee text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Masala Chai Tea</h3>
+        <p class="text-sm text-ink/55">500g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;4.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Masala Chai">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-coffee text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Fresh Paneer</h3>
+        <p class="text-sm text-ink/55">226g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Fresh Paneer">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-coffee text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Pure Ghee</h3>
+        <p class="text-sm text-ink/55">1kg</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;7.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Pure Ghee">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-saffron/25 to-spice/15"><i class="ph ph-coffee text-3xl text-spice/70"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Coconut Milk</h3>
+        <p class="text-sm text-ink/55">400ml</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.29</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Coconut Milk">Add</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- POOJA ITEMS -->
+  <section id="pooja" class="pt-12">
+    <div class="mb-5 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-spice/10 text-spice"><i class="ph ph-flame text-xl"></i></span>
+      <h2 class="font-display text-3xl text-ink">Pooja Items</h2>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/20"><i class="ph ph-flame text-3xl text-saffron"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Brass Diya Lamp</h3>
+        <p class="text-sm text-ink/55">Single</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;3.99</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Brass Diya">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/20"><i class="ph ph-flame text-3xl text-saffron"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Agarbatti Incense</h3>
+        <p class="text-sm text-ink/55">Pack of 100</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.49</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Agarbatti Incense">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/20"><i class="ph ph-flame text-3xl text-saffron"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Camphor Tablets</h3>
+        <p class="text-sm text-ink/55">50g</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;2.19</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Camphor Tablets">Add</button></div>
+      </article>
+      <article class="card flex flex-col rounded-2xl border border-ink/10 bg-surface p-4">
+        <div class="mb-3 flex h-28 items-center justify-center rounded-xl bg-gradient-to-br from-spice/20 to-saffron/20"><i class="ph ph-flame text-3xl text-saffron"></i></div>
+        <h3 class="font-display text-xl leading-tight text-ink">Cotton Wicks</h3>
+        <p class="text-sm text-ink/55">Pack of 200</p>
+        <div class="mt-auto flex items-center justify-between pt-3"><span class="font-500 text-ink">&pound;1.29</span><button class="add btn-press rounded-full bg-spice px-3 py-1.5 text-xs font-500 text-white hover:bg-spiceDk" data-name="Cotton Wicks">Add</button></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- ===== DELIVERY STRIP ===== -->
+<section class="border-y border-ink/10 bg-surface">
+  <div class="mx-auto grid max-w-content gap-6 px-5 lg:px-8 py-7 sm:grid-cols-3">
+    <div class="flex items-center gap-3"><i class="ph ph-truck text-2xl text-spice"></i><div><p class="font-500 text-ink">Next-day delivery</p><p class="text-sm text-ink/55">Order today, get it tomorrow</p></div></div>
+    <div class="flex items-center gap-3 sm:justify-center"><i class="ph ph-package text-2xl text-spice"></i><div><p class="font-500 text-ink">UK-wide delivery</p><p class="text-sm text-ink/55">Straight to your door</p></div></div>
+    <div class="flex items-center gap-3 sm:justify-end"><i class="ph ph-storefront text-2xl text-spice"></i><div><p class="font-500 text-ink">Or visit in store</p><p class="text-sm text-ink/55">1081 Argyle Street, Finnieston</p></div></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-forest text-white/80">
+  <div class="mx-auto max-w-content px-5 lg:px-8 py-14">
+    <div class="grid gap-10 sm:grid-cols-3">
+      <div>
+        <p class="font-display text-2xl text-white">Suresh <span class="text-saffron">&amp;</span> Sons</p>
+        <p class="mt-3 max-w-xs text-sm text-white/60">Finnieston's Indian grocer. Spices, fresh produce and sweets, delivered across the UK.</p>
+      </div>
+      <div class="text-sm">
+        <p class="mb-3 text-[11px] uppercase tracking-[0.18em] text-white/40">Explore</p>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-saffron transition-colors">Home</a></li>
+          <li><a href="#spices" class="hover:text-saffron transition-colors">Shop the shelves</a></li>
+          <li><a href="index.html#story" class="hover:text-saffron transition-colors">Our story</a></li>
+          <li><a href="index.html#visit" class="hover:text-saffron transition-colors">Visit the shop</a></li>
+        </ul>
+      </div>
+      <div class="text-sm">
+        <p class="mb-3 text-[11px] uppercase tracking-[0.18em] text-white/40">Find us</p>
+        <p class="text-white/70">1081 Argyle Street<br />Finnieston, Glasgow, G3 8LZ</p>
+        <p class="mt-3"><a href="tel:01417373938" class="hover:text-saffron transition-colors">0141 737 3938</a></p>
+        <p><a href="mailto:enquiries@sureshandsons.co.uk" class="hover:text-saffron transition-colors">enquiries@sureshandsons.co.uk</a></p>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-col gap-2 border-t border-white/15 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+      <p>Designed by Mukta Dhandge. A concept redesign for Suresh &amp; Sons. Products and prices shown are for the demo.</p>
+      <p>&copy; 2026</p>
+    </div>
+  </div>
+</footer>
+
+<!-- toast -->
+<div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 translate-y-3 rounded-full bg-forest px-5 py-3 text-sm font-500 text-white opacity-0 shadow-lg">Added</div>
+
+<script>
+  (function () {
+    var count = 0;
+    var badge = document.getElementById('basketCount');
+    var toast = document.getElementById('toast');
+    var toastTimer;
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(-50%) translateY(0)';
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(12px)';
+      }, 1600);
+    }
+    document.querySelectorAll('.add').forEach(function (b) {
+      b.addEventListener('click', function () {
+        count++;
+        if (badge) { badge.textContent = count; badge.classList.remove('hidden'); }
+        showToast('Added ' + (this.dataset.name || 'item') + ' to basket');
+      });
+    });
+    var basketBtn = document.getElementById('basketBtn');
+    if (basketBtn) {
+      basketBtn.addEventListener('click', function () {
+        showToast(count > 0 ? count + ' item(s) in your basket' : 'Your basket is empty');
+      });
+    }
+  })();
+</script>
+</body>
+</html>
