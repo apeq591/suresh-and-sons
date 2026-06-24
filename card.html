@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mukta Dhandge | Calling Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root { --paper:#F2E6D0; --surface:#FCF8EF; --ink:#2A2018; --spice:#A8342A; --saffron:#C98A2B; --brown:#2C1813; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', system-ui, sans-serif; color: var(--ink);
+    background: radial-gradient(900px 500px at 50% -10%, rgba(224,162,58,0.18), transparent 60%), var(--paper);
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 28px 16px; }
+
+  .hint { max-width: 360px; text-align: center; color: rgba(42,32,24,.6); font-size: 14px; margin-bottom: 22px; line-height: 1.5; }
+  .print-btn { margin-top: 22px; border: 0; cursor: pointer; border-radius: 999px;
+    background: var(--spice); color: #fff; font-weight: 500; font-size: 15px; padding: 12px 26px; font-family: inherit; }
+  .print-btn:active { transform: translateY(1px); }
+
+  /* The card itself: standard business-card ratio (85.6 x 53.98 mm) */
+  .card { width: 520px; height: 328px; background: var(--surface);
+    border-radius: 18px; box-shadow: 0 26px 60px -28px rgba(42,24,16,.55);
+    display: flex; overflow: hidden; border: 1px solid rgba(42,32,24,.08); }
+
+  .left { flex: 1; padding: 34px 30px; display: flex; flex-direction: column; }
+  .kicker { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--spice); }
+  .name { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 42px; line-height: 1.02; margin-top: 10px; }
+  .role { font-size: 15px; color: rgba(42,32,24,.62); margin-top: 6px; }
+  .hand { font-family: 'Caveat', cursive; font-size: 26px; color: var(--saffron); margin-top: auto; }
+  .email { font-size: 15px; font-weight: 500; margin-top: 6px; display: flex; align-items: center; gap: 8px; }
+  .email .dot { width: 7px; height: 7px; border-radius: 999px; background: var(--spice); display: inline-block; }
+
+  .right { width: 188px; background: var(--brown); color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 22px; }
+  .qr { width: 122px; height: 122px; background: #fff; border-radius: 12px; padding: 8px; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .scan { font-size: 12px; line-height: 1.4; text-align: center; color: rgba(255,255,255,.82); }
+  .scan b { color: #fff; font-weight: 600; }
+
+  @media (max-width: 560px) { .card { transform: scale(.86); } }
+
+  @page { size: 86mm 54mm; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; display: block; }
+    .noprint { display: none !important; }
+    .card { width: 86mm; height: 54mm; border-radius: 0; box-shadow: none; border: none; }
+  }
+</style>
+</head>
+<body>
+  <p class="hint noprint">Your calling card. Print it (button below) on paper or card and cut it out, or just show this screen on your phone. The QR opens the website you built.</p>
+
+  <div class="card">
+    <div class="left">
+      <span class="kicker">Websites &amp; Apps &middot; Glasgow</span>
+      <h1 class="name">Mukta<br />Dhandge</h1>
+      <p class="role">I design and build websites.</p>
+      <p class="hand">let's make something</p>
+      <p class="email"><span class="dot"></span><span id="email">your-email@gmail.com</span></p>
+    </div>
+    <div class="right">
+      <div class="qr"><img src="assets/qr-site.png" alt="QR code to a website by Mukta Dhandge" /></div>
+      <p class="scan"><b>Scan to see</b><br />a site I built</p>
+    </div>
+  </div>
+
+  <button class="print-btn noprint" onclick="window.print()">Print this card</button>
+</body>
+</html>
