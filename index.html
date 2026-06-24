@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Suresh &amp; Sons | Indian Grocer, Finnieston Glasgow</title>
+<meta name="description" content="Suresh & Sons is Finnieston's Indian grocer. Spices, fresh produce, sweets and pantry staples, with next-day delivery across the UK." />
+
+<!-- Fonts: Cormorant Garamond (heritage display) + Outfit (clean modern body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Phosphor icons (icon library, not hand-rolled SVG) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper:   '#F4EBD9', // warm oat base
+          surface: '#FBF6EC', // raised warm surface
+          ink:     '#2A2622', // warm near-black text
+          forest:  '#1B2A22', // deep curry-leaf green (dark anchor)
+          spice:   '#A8342A', // the single accent: chilli / madder red
+          spiceDk: '#86281F',
+          saffron: '#E0A23A', // rationed decorative highlight only
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'serif'],
+          sans: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        maxWidth: { content: '1180px' },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .font-display { letter-spacing: -0.01em; }
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(18px);
+    transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .tile img { transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  .tile:hover img { transform: scale(1.05); }
+  .btn-press:active { transform: translateY(1px); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .tile img { transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="font-sans bg-paper text-ink antialiased">
+
+<!-- ===== NAV ===== -->
+<header id="top" class="fixed inset-x-0 top-0 z-40 bg-paper/85 backdrop-blur-md border-b border-ink/10">
+  <nav class="mx-auto flex max-w-content items-center justify-between gap-4 px-5 lg:px-8 h-[68px]">
+    <a href="#top" class="flex items-baseline gap-2 leading-none">
+      <span class="font-display text-2xl font-700 text-ink">Suresh
+        <span class="text-saffron">&amp;</span> Sons</span>
+      <span class="hidden sm:block text-[11px] uppercase tracking-[0.18em] text-ink/45">Finnieston</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-[15px] text-ink/75">
+      <a href="#categories" class="hover:text-spice transition-colors">Shop</a>
+      <a href="#story" class="hover:text-spice transition-colors">Our Story</a>
+      <a href="#visit" class="hover:text-spice transition-colors">Visit</a>
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="btn-press rounded-full bg-spice px-5 py-2.5 text-sm font-500 text-white hover:bg-spiceDk transition-colors">
+        Shop online
+      </a>
+    </div>
+    <button id="navToggle" aria-label="Open menu" class="md:hidden text-2xl text-ink">
+      <i class="ph ph-list"></i>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-ink/10 bg-paper px-5 py-4">
+    <div class="flex flex-col gap-4 text-[16px] text-ink/80">
+      <a href="#categories" class="mobile-link">Shop</a>
+      <a href="#story" class="mobile-link">Our Story</a>
+      <a href="#visit" class="mobile-link">Visit</a>
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="rounded-full bg-spice px-5 py-3 text-center font-500 text-white">Shop online</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="relative px-5 lg:px-8 pt-28 pb-14 md:pt-32 md:pb-20">
+  <div class="mx-auto grid max-w-content items-center gap-10 md:grid-cols-12">
+    <div class="md:col-span-6 lg:col-span-5">
+      <p class="reveal mb-5 text-[12px] uppercase tracking-[0.22em] text-spice/80">Finnieston &middot; Glasgow</p>
+      <h1 class="reveal font-display text-5xl leading-[1.04] text-ink sm:text-6xl lg:text-7xl">
+        Bring home the<br />real taste of India.
+      </h1>
+      <p class="reveal mt-6 max-w-md text-lg leading-relaxed text-ink/70">
+        Finnieston's Indian grocer for spices, fresh produce, sweets and pantry staples, with next-day delivery across the UK.
+      </p>
+      <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+        <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+           class="btn-press inline-flex items-center gap-2 rounded-full bg-spice px-7 py-3.5 text-[15px] font-500 text-white hover:bg-spiceDk transition-colors">
+          <i class="ph ph-shopping-bag-open text-lg"></i> Shop online
+        </a>
+        <a href="#visit"
+           class="btn-press inline-flex items-center gap-2 rounded-full border border-ink/25 px-7 py-3.5 text-[15px] font-500 text-ink hover:border-spice hover:text-spice transition-colors">
+          Visit the shop
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal md:col-span-6 lg:col-span-7">
+      <div class="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-saffron/30 to-spice/20 shadow-[0_30px_60px_-25px_rgba(42,38,34,0.45)]">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1400&q=72"
+             alt="Indian spices, ginger, garlic and fresh herbs laid out on a table"
+             class="h-[340px] w-full object-cover sm:h-[440px] lg:h-[520px]"
+             fetchpriority="high" onerror="this.style.display='none'" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section class="border-y border-ink/10 bg-surface">
+  <div class="mx-auto grid max-w-content gap-6 px-5 lg:px-8 py-7 sm:grid-cols-3">
+    <div class="reveal flex items-center gap-3">
+      <i class="ph ph-truck text-2xl text-spice"></i>
+      <div>
+        <p class="font-500 text-ink">Next-day delivery</p>
+        <p class="text-sm text-ink/55">Order today, get it tomorrow</p>
+      </div>
+    </div>
+    <div class="reveal flex items-center gap-3 sm:justify-center">
+      <i class="ph ph-storefront text-2xl text-spice"></i>
+      <div>
+        <p class="font-500 text-ink">Open 7 days a week</p>
+        <p class="text-sm text-ink/55">On Argyle Street, Finnieston</p>
+      </div>
+    </div>
+    <div class="reveal flex items-center gap-3 sm:justify-end">
+      <i class="ph ph-map-trifold text-2xl text-spice"></i>
+      <div>
+        <p class="font-500 text-ink">UK-wide delivery</p>
+        <p class="text-sm text-ink/55">From our shelves to your door</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES (bento) ===== -->
+<section id="categories" class="px-5 lg:px-8 py-20 md:py-28">
+  <div class="mx-auto max-w-content">
+    <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
+      <h2 class="font-display text-4xl text-ink sm:text-5xl">Shop by category</h2>
+      <p class="max-w-sm text-ink/60">Everything for an Indian kitchen, from whole spices to fresh produce and sweets.</p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[200px]">
+      <!-- Spices: large feature tile -->
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="tile reveal group relative col-span-2 row-span-2 overflow-hidden rounded-3xl bg-forest">
+        <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=900&q=70"
+             alt="Bowls of colourful Indian spices at a market stall"
+             class="absolute inset-0 h-full w-full object-cover opacity-95" loading="lazy" onerror="this.style.display='none'" />
+        <div class="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/20 to-transparent"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-display text-3xl text-white">Spices &amp; Masalas</h3>
+          <p class="mt-1 text-sm text-white/75">Whole, ground and freshly blended</p>
+        </div>
+      </a>
+
+      <!-- Fresh Produce -->
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="tile reveal group relative overflow-hidden rounded-3xl bg-forest">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=70"
+             alt="Fresh vegetables on grocery shelves" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+        <div class="absolute inset-0 bg-gradient-to-t from-forest/85 to-transparent"></div>
+        <h3 class="absolute bottom-4 left-5 font-display text-2xl text-white">Fresh Produce</h3>
+      </a>
+
+      <!-- Rice, Flour & Grains -->
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="tile reveal group relative overflow-hidden rounded-3xl bg-forest">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=70"
+             alt="Freshly baked breads and grains" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+        <div class="absolute inset-0 bg-gradient-to-t from-forest/85 to-transparent"></div>
+        <h3 class="absolute bottom-4 left-5 font-display text-2xl text-white">Rice, Flour &amp; Grains</h3>
+      </a>
+
+      <!-- Sweets & Snacks -->
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="tile reveal group relative overflow-hidden rounded-3xl bg-forest">
+        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=70"
+             alt="Indian snacks served with chutneys" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+        <div class="absolute inset-0 bg-gradient-to-t from-forest/85 to-transparent"></div>
+        <h3 class="absolute bottom-4 left-5 font-display text-2xl text-white">Sweets &amp; Snacks</h3>
+      </a>
+
+      <!-- Ready to Eat -->
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="tile reveal group relative overflow-hidden rounded-3xl bg-forest">
+        <img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=700&q=70"
+             alt="Indian rice dish with naan bread" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+        <div class="absolute inset-0 bg-gradient-to-t from-forest/85 to-transparent"></div>
+        <h3 class="absolute bottom-4 left-5 font-display text-2xl text-white">Ready to Eat</h3>
+      </a>
+
+      <!-- Pooja Items: non-photo tile for visual variety -->
+      <a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener"
+         class="tile reveal group relative col-span-2 overflow-hidden rounded-3xl bg-gradient-to-br from-spice to-spiceDk md:col-span-1">
+        <div class="flex h-full flex-col justify-between p-5">
+          <i class="ph ph-flame text-3xl text-saffron"></i>
+          <div>
+            <h3 class="font-display text-2xl text-white">Pooja Items</h3>
+            <p class="text-sm text-white/75">For prayer and festival</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="px-5 lg:px-8 pb-20 md:pb-28">
+  <div class="mx-auto grid max-w-content items-center gap-10 overflow-hidden rounded-[32px] bg-forest md:grid-cols-2">
+    <div class="reveal order-2 p-8 md:order-1 md:p-14">
+      <h2 class="font-display text-4xl leading-tight text-white sm:text-5xl">From Argyle Street to your table</h2>
+      <p class="mt-5 leading-relaxed text-white/75">
+        Suresh &amp; Sons is Finnieston's neighbourhood Indian grocer, stocked with the spices, fresh produce and
+        sweets that make home cooking taste like home. The same shelves locals have always loved, now packed and
+        delivered across the UK.
+      </p>
+      <a href="https://sureshandsons.co.uk/about-us/" target="_blank" rel="noopener"
+         class="mt-7 inline-flex items-center gap-2 text-saffron hover:gap-3 transition-all">
+        Read our story <i class="ph ph-arrow-right"></i>
+      </a>
+    </div>
+    <div class="reveal order-1 h-64 md:order-2 md:h-full">
+      <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1100&q=72"
+           alt="A rich Indian curry served in a copper bowl with rice"
+           class="h-full w-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#A8342A,#86281F)'" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section id="visit" class="px-5 lg:px-8 pb-20 md:pb-28">
+  <div class="mx-auto grid max-w-content gap-10 md:grid-cols-2">
+    <div class="reveal">
+      <h2 class="font-display text-4xl text-ink sm:text-5xl">Come and visit</h2>
+      <p class="mt-4 max-w-md text-ink/65">
+        Pop in and the whole shop opens up to you, shelf after shelf of spice, fresh produce and sweets.
+      </p>
+      <div class="mt-8 space-y-5">
+        <div class="flex items-start gap-4">
+          <i class="ph ph-map-pin mt-1 text-xl text-spice"></i>
+          <div>
+            <p class="font-500 text-ink">1081 Argyle Street</p>
+            <p class="text-ink/60">Finnieston, Glasgow, G3 8LZ</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <i class="ph ph-clock mt-1 text-xl text-spice"></i>
+          <div>
+            <p class="font-500 text-ink">Open 7 days a week</p>
+            <p class="text-ink/60">9am to 8pm</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <i class="ph ph-phone mt-1 text-xl text-spice"></i>
+          <div>
+            <p class="font-500 text-ink">
+              <a href="tel:01417373938" class="hover:text-spice transition-colors">0141 737 3938</a>
+            </p>
+            <p class="text-ink/60">
+              <a href="mailto:enquiries@sureshandsons.co.uk" class="hover:text-spice transition-colors">enquiries@sureshandsons.co.uk</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=1081+Argyle+Street+Glasgow+G3+8LZ" target="_blank" rel="noopener"
+         class="btn-press mt-8 inline-flex items-center gap-2 rounded-full bg-spice px-7 py-3.5 text-[15px] font-500 text-white hover:bg-spiceDk transition-colors">
+        <i class="ph ph-navigation-arrow text-lg"></i> Get directions
+      </a>
+    </div>
+    <div class="reveal overflow-hidden rounded-3xl border border-ink/10 bg-surface min-h-[320px]">
+      <iframe title="Map to Suresh and Sons, 1081 Argyle Street, Glasgow"
+        src="https://www.google.com/maps?q=1081%20Argyle%20Street%2C%20Glasgow%20G3%208LZ&output=embed"
+        class="h-full min-h-[320px] w-full" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-forest text-white/80">
+  <div class="mx-auto max-w-content px-5 lg:px-8 py-14">
+    <div class="grid gap-10 sm:grid-cols-3">
+      <div>
+        <p class="font-display text-2xl text-white">Suresh <span class="text-saffron">&amp;</span> Sons</p>
+        <p class="mt-3 max-w-xs text-sm text-white/60">
+          Finnieston's Indian grocer. Spices, fresh produce and sweets, delivered across the UK.
+        </p>
+      </div>
+      <div class="text-sm">
+        <p class="mb-3 uppercase tracking-[0.18em] text-white/40 text-[11px]">Explore</p>
+        <ul class="space-y-2">
+          <li><a href="#categories" class="hover:text-saffron transition-colors">Shop by category</a></li>
+          <li><a href="#story" class="hover:text-saffron transition-colors">Our story</a></li>
+          <li><a href="#visit" class="hover:text-saffron transition-colors">Visit the shop</a></li>
+          <li><a href="https://sureshandsons.co.uk/shop/" target="_blank" rel="noopener" class="hover:text-saffron transition-colors">Shop online</a></li>
+        </ul>
+      </div>
+      <div class="text-sm">
+        <p class="mb-3 uppercase tracking-[0.18em] text-white/40 text-[11px]">Find us</p>
+        <p class="text-white/70">1081 Argyle Street<br />Finnieston, Glasgow, G3 8LZ</p>
+        <p class="mt-3"><a href="tel:01417373938" class="hover:text-saffron transition-colors">0141 737 3938</a></p>
+        <p><a href="mailto:enquiries@sureshandsons.co.uk" class="hover:text-saffron transition-colors">enquiries@sureshandsons.co.uk</a></p>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-col gap-2 border-t border-white/15 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+      <p>Designed by Mukta at ApeQ. A concept redesign for Suresh &amp; Sons, not the shop's official site.</p>
+      <p>&copy; 2026</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  (function () {
+    var btn = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', function () { menu.classList.toggle('hidden'); });
+      menu.querySelectorAll('.mobile-link, a').forEach(function (a) {
+        a.addEventListener('click', function () { menu.classList.add('hidden'); });
+      });
+    }
+  })();
+
+  // Scroll reveal via IntersectionObserver (no scroll listeners)
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
